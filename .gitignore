@@ -1,0 +1,11 @@
+node_modules/
+dist/
+dist-ssr
+*.local
+*.log
+audit-*.png
+.DS_Store
+
+# Local logs and editor settings
+*.log
+.vscode/
