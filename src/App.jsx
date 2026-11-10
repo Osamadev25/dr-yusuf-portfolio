@@ -13,10 +13,25 @@ import {
 import { doctor } from "./data/doctor";
 import { useLanguage } from "./hooks/useLanguage";
 import { useTheme } from "./hooks/useTheme";
+import { useEffect } from "react";
 
 export default function App() {
   const { lang, setLang, t, l } = useLanguage();
   const { theme, toggleTheme } = useTheme();
+
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+
+    return () => {
+      if ("scrollRestoration" in window.history) {
+        window.history.scrollRestoration = "auto";
+      }
+    };
+  }, []);
+
   const showResearch =
     doctor.researchPublications.length > 0 ||
     doctor.awards.length > 0 ||
