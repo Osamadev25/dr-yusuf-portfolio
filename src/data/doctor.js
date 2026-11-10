@@ -440,7 +440,7 @@ export const doctor = {
       icon: "faUserDoctor",
     },
     {
-      value: "Thousands",
+      value: { en: "Thousands", ar: "بالآلاف" },
       label: { en: "Patients Managed", ar: "مرضى تمت رعايتهم" },
       icon: "faUsers",
     },
@@ -462,4 +462,4 @@ export const doctor = {
   cvUrl: `${import.meta.env.BASE_URL}cv.pdf`,
 };
 
-export const doctorPortrait = `${import.meta.env.BASE_URL}images/doctor-portrait.png`;
+export const doctorPortrait = `${import.meta.env.BASE_URL}images/doctor-portrait.webp`;

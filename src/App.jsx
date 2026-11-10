@@ -38,7 +38,7 @@ export default function App() {
         <Hero t={t} l={l} />
 
         {/* 2. About Me 3-column section: visual desk, bio narrative & signature info card */}
-        <AboutMeSection t={t} l={l} />
+        <AboutMeSection t={t} l={l} lang={lang} />
 
         {/* 3. Areas of Professional Focus (6 grid cards with teal icons) */}
         <ServicesSection t={t} l={l} />

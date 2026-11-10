@@ -235,7 +235,7 @@ export function Education({ t, l }) {
   return (
     <section
       id="education"
-      className="scroll-mt-20 bg-slate-50/70 py-16 md:py-20 dark:bg-slate-900/40"
+      className="scroll-mt-20 bg-slate-50/70 py-14 md:py-20 dark:bg-slate-900/40"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
@@ -532,9 +532,12 @@ export function Courses({ t, l }) {
           {visibleGroups.map((group, idx) => (
             <Reveal key={group.title} delay={idx * 80}>
               <article className="h-full rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-                <h3 className="border-b border-slate-100 pb-3 text-sm font-bold text-navy-900 dark:border-slate-800 dark:text-white">
-                  {group.title}
-                  <span className="ms-2 rounded-full bg-brand-50 px-2 py-0.5 text-xs font-bold text-brand-700 dark:bg-brand-950/60 dark:text-brand-300">
+                <h3
+                  aria-label={`${group.title} (${group.items.length})`}
+                  className="flex items-center gap-2 border-b border-slate-100 pb-3 text-sm font-bold text-navy-900 dark:border-slate-800 dark:text-white"
+                >
+                  <span>{group.title}</span>
+                  <span className="rounded-full bg-brand-50 px-2 py-0.5 text-xs font-bold text-brand-700 dark:bg-brand-950/60 dark:text-brand-300">
                     {group.items.length}
                   </span>
                 </h3>
@@ -585,7 +588,7 @@ export function Research({ t, l }) {
 
                 <div className="mt-4 rounded-2xl bg-white/80 p-4 border border-brand-100 dark:border-slate-800 dark:bg-slate-900/60">
                   <p className="text-xs font-bold uppercase tracking-wider text-brand-700 dark:text-brand-400">
-                    Scope & Contribution:
+                    {t("sections.scope")}
                   </p>
                   <p className="mt-1.5 text-sm leading-relaxed text-slate-700 dark:text-slate-200">
                     {l(p.contribution)}

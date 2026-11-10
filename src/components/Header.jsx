@@ -6,8 +6,21 @@ import {
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useRef, useState } from "react";
+import { doctor } from "../data/doctor";
 import { navigation } from "../data/navigation";
 import { languages } from "../i18n/translations";
+
+const primaryNavigationIds = [
+  "hero",
+  "about",
+  "services",
+  "experience",
+  "education",
+  "contact",
+];
+const primaryNavigation = navigation.filter((item) =>
+  primaryNavigationIds.includes(item.id),
+);
 
 export function Header({
   lang,
@@ -21,16 +34,21 @@ export function Header({
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
   const panelRef = useRef(null);
+  const menuButtonRef = useRef(null);
+  const wasOpenRef = useRef(false);
+  const brandName = l(doctor.personal.displayName);
 
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 8);
-      const sections = navigation.map((n) => document.getElementById(n.id));
+      const sections = primaryNavigation.map((n) =>
+        document.getElementById(n.id),
+      );
       const scrollPos = window.scrollY + 120;
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = sections[i];
         if (el && el.offsetTop <= scrollPos) {
-          setActiveSection(navigation[i].id);
+          setActiveSection(primaryNavigation[i].id);
           break;
         }
       }
@@ -43,6 +61,8 @@ export function Header({
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     if (open) panelRef.current?.querySelector("a")?.focus();
+    if (!open && wasOpenRef.current) menuButtonRef.current?.focus();
+    wasOpenRef.current = open;
     return () => {
       document.body.style.overflow = "";
     };
@@ -78,7 +98,7 @@ export function Header({
             href="#hero"
             className="group flex items-center gap-3.5 focus:outline-none"
             onClick={() => setOpen(false)}
-            aria-label={t("navigation.brand")}
+            aria-label={brandName}
           >
             {/* Medical Serpent & Chalice Emblem */}
             <div className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-600 to-teal-700 text-white shadow-md shadow-brand-600/20 transition-transform duration-200 group-hover:scale-105">
@@ -102,10 +122,7 @@ export function Header({
             </div>
             <div className="leading-none">
               <span className="block text-base font-extrabold tracking-tight text-navy-900 transition dark:text-white sm:text-lg">
-                {t("navigation.brand")}
-              </span>
-              <span className="mt-1 block text-xs font-semibold text-brand-600 dark:text-brand-400">
-                {t("navigation.brandSub")}
+                {brandName}
               </span>
             </div>
           </a>
@@ -115,7 +132,7 @@ export function Header({
             className="hidden items-center gap-1 xl:gap-2 lg:flex"
             aria-label="Primary"
           >
-            {navigation.map((item) => {
+            {primaryNavigation.map((item) => {
               const active = activeSection === item.id;
               return (
                 <a
@@ -193,6 +210,7 @@ export function Header({
             {/* Mobile Hamburger */}
             <button
               type="button"
+              ref={menuButtonRef}
               className="grid h-9 w-9 place-items-center rounded-xl border border-slate-200 text-slate-700 transition hover:bg-slate-100 dark:border-slate-800 dark:text-slate-200 dark:hover:bg-slate-900 lg:hidden"
               aria-expanded={open}
               aria-controls="mobile-menu"
@@ -215,7 +233,7 @@ export function Header({
           id="mobile-menu"
           ref={panelRef}
           className={`overflow-hidden border-slate-200 bg-white transition-[max-height,border-width] duration-300 dark:border-slate-800 dark:bg-slate-950 lg:hidden ${
-            open ? "max-h-[500px] border-t" : "max-h-0"
+            open ? "max-h-[80vh] overflow-y-auto border-t" : "max-h-0"
           }`}
           aria-hidden={!open}
         >
@@ -223,7 +241,7 @@ export function Header({
             className="mx-auto grid max-w-7xl gap-1 px-4 py-4 sm:px-6"
             aria-label="Mobile"
           >
-            {navigation.map((item) => (
+            {primaryNavigation.map((item) => (
               <a
                 key={item.id}
                 href={`#${item.id}`}

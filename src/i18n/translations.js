@@ -25,7 +25,7 @@ export const translations = {
     navigation: {
       openMenu: "Open navigation menu",
       closeMenu: "Close navigation menu",
-      brand: "Dr. Yusuf Almasawa",
+      brand: "Dr. Yusuf",
       brandSub: "General Practitioner — Internal Medicine Dept.",
     },
     hero: {
@@ -121,6 +121,7 @@ export const translations = {
       conferences: "Scientific Conferences",
       research: "Scientific Research",
       researchTitle: "Medical Research & Scientific Studies",
+      scope: "Scope & Contribution:",
       publications: "Research Studies",
       awards: "Awards & Honors",
       memberships: "Professional Memberships",
@@ -168,7 +169,7 @@ export const translations = {
     navigation: {
       openMenu: "افتح قائمة التنقل",
       closeMenu: "أغلق قائمة التنقل",
-      brand: "د. يوسف المساوى",
+      brand: "د. يوسف",
       brandSub: "طبيب عام — قسم الأمراض الباطنية",
     },
     hero: {
@@ -264,6 +265,7 @@ export const translations = {
       conferences: "المؤتمرات والندوات العلمية",
       research: "البحث العلمي",
       researchTitle: "الأبحاث والدراسات العلمية",
+      scope: "نطاق المساهمة والدور:",
       publications: "الدراسات والأبحاث المنشورة",
       awards: "الجوائز والتكريم",
       memberships: "العضويات المهنية",

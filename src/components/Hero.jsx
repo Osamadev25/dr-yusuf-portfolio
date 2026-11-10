@@ -28,7 +28,7 @@ function AnimatedNumber({ target, suffix = "" }) {
           setStarted(true);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     observer.observe(el);
@@ -62,10 +62,11 @@ function AnimatedNumber({ target, suffix = "" }) {
   }, [started, target]);
 
   const isNumeric = !Number.isNaN(parseInt(target, 10));
+  const displayedValue = isNumeric && started ? count : target;
 
   return (
     <span ref={elementRef} className="tabular-nums">
-      {isNumeric ? (started ? count : 0) : target}
+      {displayedValue}
       {isNumeric && suffix}
     </span>
   );
@@ -197,10 +198,11 @@ export function Hero({ t, l }) {
               {doctor.stats.map((item, idx) => {
                 const icons = [faUserDoctor, faUsers, faGraduationCap, faAward];
                 const icon = icons[idx % icons.length];
-                const hasPlus = item.value.endsWith("+");
+                const localizedValue = l(item.value);
+                const hasPlus = localizedValue.endsWith("+");
                 const cleanValue = hasPlus
-                  ? item.value.replace("+", "")
-                  : item.value;
+                  ? localizedValue.replace("+", "")
+                  : localizedValue;
 
                 return (
                   <div
@@ -230,7 +232,7 @@ export function Hero({ t, l }) {
   );
 }
 
-export function AboutMeSection({ t, l }) {
+export function AboutMeSection({ t, l, lang }) {
   const [copiedType, setCopiedType] = useState(null);
 
   const handleCopy = (text, type) => {
@@ -256,7 +258,7 @@ export function AboutMeSection({ t, l }) {
                 />
                 <div className="relative overflow-hidden rounded-[2.2rem] border-4 border-white bg-slate-100 shadow-xl dark:border-slate-800 dark:bg-slate-900">
                   <img
-                    src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80"
+                    src={`${import.meta.env.BASE_URL}images/hero.webp`}
                     alt="Medical Stethoscope and Consultation Desk"
                     className="aspect-[4/5] w-full object-cover"
                     loading="lazy"
@@ -389,6 +391,7 @@ export function AboutMeSection({ t, l }) {
                     <a
                       href={doctor.contact.phoneHref}
                       dir="ltr"
+                      style={{ textAlign: lang === "ar" ? "right" : "left" }}
                       className="mt-1 block text-[13px] font-semibold text-navy-900 hover:text-brand-600 dark:text-white dark:hover:text-brand-400"
                     >
                       {doctor.contact.phone}

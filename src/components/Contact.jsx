@@ -267,7 +267,7 @@ export function Footer({ t }) {
     <footer className="border-t border-slate-200/80 bg-white dark:border-slate-800 dark:bg-slate-950">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-8 text-xs text-slate-500 sm:flex-row sm:px-6 lg:px-8 dark:text-slate-400">
         <p className="font-semibold">
-          © {new Date().getFullYear()} {t("navigation.brand")} — {t("footer.rights")}
+          © {new Date().getFullYear()} Dr. Yusuf Almasawa — {t("footer.rights")}
         </p>
 
         {/* Social / Direct Links */}
@@ -275,14 +275,14 @@ export function Footer({ t }) {
           <a
             href={`mailto:${doctor.contact.email}`}
             className="text-slate-400 transition hover:text-brand-600 dark:hover:text-brand-400"
-            aria-label="Email"
+            aria-label={t("hero.email")}
           >
             <FontAwesomeIcon icon={faEnvelope} />
           </a>
           <a
             href={doctor.contact.phoneHref}
             className="text-slate-400 transition hover:text-brand-600 dark:hover:text-brand-400"
-            aria-label="Phone"
+            aria-label={t("hero.phone")}
           >
             <FontAwesomeIcon icon={faPhone} />
           </a>
