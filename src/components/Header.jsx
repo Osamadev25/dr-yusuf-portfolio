@@ -3,6 +3,7 @@ import {
   faBars,
   faMoon,
   faSun,
+  faUserDoctor,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useRef, useState } from "react";
@@ -92,37 +93,28 @@ export function Header({
             : "border-b border-transparent bg-white/80 backdrop-blur-sm dark:bg-slate-950/80"
         }`}
       >
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-2 px-4 sm:gap-4 sm:px-6 lg:px-8">
           {/* Logo */}
           <a
             href="#hero"
-            className="group flex items-center gap-3.5 focus:outline-none"
+            className="group flex min-w-0 items-center gap-2.5 focus:outline-none sm:gap-3.5"
             onClick={() => setOpen(false)}
             aria-label={brandName}
           >
-            {/* Medical Serpent & Chalice Emblem */}
+            {/* Medical doctor emblem */}
             <div className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-600 to-teal-700 text-white shadow-md shadow-brand-600/20 transition-transform duration-200 group-hover:scale-105">
-              <svg
-                className="h-6 w-6 fill-none stroke-current"
-                viewBox="0 0 24 24"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                {/* Chalice */}
-                <path d="M7 4h10v3a5 5 0 0 1-5 5 5 5 0 0 1-5-5V4z" />
-                <path d="M12 12v7" />
-                <path d="M8 19h8" />
-                {/* Asclepius Snake wrapping stem */}
-                <path
-                  d="M10 8c1-1 3-1 3.5 0s0 2.5-1.5 3c-1.5.5-2 1.5-1.5 2.5s2 1.5 2.5 2.5"
-                  strokeWidth="1.8"
-                />
-              </svg>
+              <FontAwesomeIcon
+                icon={faUserDoctor}
+                className="h-5 w-5"
+                aria-hidden="true"
+              />
             </div>
-            <div className="leading-none">
-              <span className="block text-base font-extrabold tracking-tight text-navy-900 transition dark:text-white sm:text-lg">
+            <div className="min-w-0 leading-tight">
+              <span className="block truncate text-base font-extrabold tracking-tight text-navy-900 transition dark:text-white sm:text-lg">
                 {brandName}
+              </span>
+              <span className="mt-1 block truncate text-[9px] font-bold uppercase tracking-[0.08em] text-brand-700 dark:text-brand-300 sm:text-[10px]">
+                {t("navigation.brandSub")}
               </span>
             </div>
           </a>
