@@ -9,10 +9,50 @@
       content="Dr. Yusuf Almasawa — General Practitioner in Sana'a, Yemen. Primary care and community health. | د. يوسف المساوى — طبيب عام في صنعاء، اليمن."
     />
     <link rel="icon" type="image/png" href="%BASE_URL%images/doctor-portrait.png" />
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Dr. Yusuf Almasawa | General Practitioner — د. يوسف المساوى" />
+    <meta
+      property="og:description"
+      content="General Practitioner focused on primary care and community health in Sana'a, Yemen. | طبيب عام مهتم بالرعاية الأولية وصحة المجتمع في صنعاء، اليمن."
+    />
+    <meta property="og:image" content="%BASE_URL%images/doctor-portrait.png" />
+    <meta property="og:locale" content="ar_YE" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Dr. Yusuf Almasawa | General Practitioner — د. يوسف المساوى" />
+    <meta
+      name="twitter:description"
+      content="General Practitioner focused on primary care and community health in Sana'a, Yemen."
+    />
+    <meta name="twitter:image" content="%BASE_URL%images/doctor-portrait.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cairo:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+      rel="stylesheet"
+    />
     <title>Dr. Yusuf Almasawa | General Practitioner — د. يوسف المساوى</title>
   </head>
 
   <body>
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("dr-yusuf-theme");
+          if (
+            saved === "dark" ||
+            (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)
+          ) {
+            document.documentElement.classList.add("dark");
+          }
+        } catch (e) {}
+      })();
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

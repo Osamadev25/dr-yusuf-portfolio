@@ -1,20 +1,31 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans:
-    "Segoe UI", Tahoma, "Noto Kufi Arabic", Arial, Helvetica, sans-serif;
+    "Plus Jakarta Sans", "Cairo", "Segoe UI", Tahoma, sans-serif;
+  --font-serif:
+    "Playfair Display", "Amiri", Georgia, serif;
+  --font-signature:
+    "Alex Brush", cursive, serif;
 
-  --color-navy-950: #081a38;
-  --color-navy-900: #0b2447;
-  --color-navy-800: #12305c;
-  --color-navy-700: #1a3f75;
+  --color-navy-950: #06152b;
+  --color-navy-900: #0a2540;
+  --color-navy-800: #10335a;
+  --color-navy-700: #1b497a;
 
-  --color-brand-50: #eff6ff;
-  --color-brand-100: #dbeafe;
-  --color-brand-200: #bfdbfe;
-  --color-brand-600: #1d4ed8;
-  --color-brand-700: #1e40af;
-  --color-brand-800: #1e3a8a;
+  --color-brand-50: #f0fdfa;
+  --color-brand-100: #ccfbf1;
+  --color-brand-200: #99f6e4;
+  --color-brand-300: #5eead4;
+  --color-brand-400: #2dd4bf;
+  --color-brand-500: #14b8a6;
+  --color-brand-600: #0d9488;
+  --color-brand-700: #0f766e;
+  --color-brand-800: #115e59;
+  --color-brand-900: #134e4a;
+  --color-brand-950: #042f2e;
 }
 
 :root {
@@ -27,6 +38,12 @@
   color-scheme: light;
   background-color: #ffffff;
   color: #0b2447;
+}
+
+html.dark {
+  color-scheme: dark;
+  background-color: #050e1d;
+  color: #f1f5f9;
 }
 
 *,
@@ -47,6 +64,12 @@ body {
   margin: 0;
   background: #fff;
   color: #0b2447;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+html.dark body {
+  background: #050e1d;
+  color: #f1f5f9;
 }
 
 button,
@@ -116,4 +139,28 @@ a {
     opacity: 1;
     transform: none;
   }
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-signature {
+  font-family: var(--font-signature);
+}
+
+/* ECG Pulse Wave Animation */
+@keyframes ecgPulse {
+  0% {
+    stroke-dashoffset: 1600;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.ecg-animated-path {
+  stroke-dasharray: 800;
+  stroke-dashoffset: 800;
+  animation: ecgPulse 3.5s linear infinite;
 }
