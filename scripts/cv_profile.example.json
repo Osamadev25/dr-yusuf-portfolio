@@ -1,0 +1,35 @@
+{
+  "full_name": "YOUR FULL NAME",
+  "role": "Your Professional Title",
+  "phone": "+000 000 000 000",
+  "location": "City, Country",
+  "email": "you@example.com",
+  "sections": [
+    {
+      "title": "PROFESSIONAL SUMMARY",
+      "items": [
+        "A short professional summary."
+      ]
+    },
+    {
+      "title": "EDUCATION",
+      "items": [
+        "Degree or qualification",
+        "Institution, location | Graduation year"
+      ]
+    },
+    {
+      "title": "EXPERIENCE",
+      "items": [
+        "Role | Organisation, location | Start date - End date",
+        "- Responsibility or achievement."
+      ]
+    },
+    {
+      "title": "SKILLS",
+      "items": [
+        "Relevant skill"
+      ]
+    }
+  ]
+}

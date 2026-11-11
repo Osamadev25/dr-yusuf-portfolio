@@ -11,6 +11,11 @@ dr-yusuf-cv.pdf
 Yusuf_Abualfateh_CV_ATS.
 Yusuf_Abualfateh_CV_ATS.pdf
 
+# Private CV sources and local generator profile
+/Yusuf_Abualfateh_CV_ATS.pdf
+/Yusuf_Abualfateh_CV_ATS.docx
+/scripts/cv_profile.local.json
+
 # Local logs and editor settings
 *.log
 .vscode/
