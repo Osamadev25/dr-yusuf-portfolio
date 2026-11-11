@@ -55,7 +55,7 @@ export function ContactConnectBanner({ t }) {
 
         <a
           href="#contact-form"
-          className="inline-flex shrink-0 items-center gap-3 rounded-full bg-teal-500 px-8 py-4 text-sm font-bold text-navy-950 shadow-lg shadow-teal-500/25 transition-all duration-200 hover:-translate-y-0.5 hover:bg-teal-400 hover:shadow-teal-400/35 focus:outline-none"
+          className="inline-flex shrink-0 items-center gap-3 rounded-full bg-teal-500 px-8 py-4 text-sm font-bold text-navy-950 shadow-lg shadow-teal-500/25 transition-all duration-200 hover:-translate-y-0.5 hover:bg-teal-400 hover:shadow-teal-400/35 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-300"
         >
           {t("bannerSection.cta")}
           <span className="text-base rtl:rotate-180">→</span>
@@ -117,10 +117,10 @@ export function Contact({ t, l }) {
                     <FontAwesomeIcon icon={faEnvelope} className="text-base" />
                   </span>
                   <span className="min-w-0">
-                    <span className="block text-xs font-bold uppercase tracking-wider text-slate-400">
+                    <span className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                       {t("hero.email")}
                     </span>
-                    <span className="mt-0.5 block break-all text-sm font-bold text-navy-900 group-hover:text-brand-600 dark:text-white dark:group-hover:text-brand-400">
+                    <span className="mt-0.5 block break-all text-sm font-bold text-navy-900 group-hover:text-brand-700 dark:text-white dark:group-hover:text-brand-400">
                       {doctor.contact.email}
                     </span>
                   </span>
@@ -147,11 +147,11 @@ export function Contact({ t, l }) {
                     <FontAwesomeIcon icon={faPhone} className="text-base" />
                   </span>
                   <span className="min-w-0">
-                    <span className="block text-xs font-bold uppercase tracking-wider text-slate-400">
+                    <span className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                       {t("hero.phone")}
                     </span>
                     <span
-                      className="mt-0.5 block text-sm font-bold text-navy-900 group-hover:text-brand-600 dark:text-white dark:group-hover:text-brand-400"
+                      className="mt-0.5 block text-sm font-bold text-navy-900 group-hover:text-brand-700 dark:text-white dark:group-hover:text-brand-400"
                       dir="ltr"
                     >
                       {doctor.contact.phone}
@@ -176,7 +176,7 @@ export function Contact({ t, l }) {
                   <FontAwesomeIcon icon={faLocationDot} className="text-base" />
                 </span>
                 <span className="min-w-0">
-                  <span className="block text-xs font-bold uppercase tracking-wider text-slate-400">
+                  <span className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                     {t("hero.location")}
                   </span>
                   <span className="mt-0.5 block text-sm font-bold text-navy-900 dark:text-white">
@@ -203,7 +203,7 @@ export function Contact({ t, l }) {
                       required
                       autoComplete="name"
                       placeholder={t("contactForm.namePlaceholder")}
-                      className="rounded-2xl border border-slate-200 bg-slate-50/60 px-4 py-3.5 text-sm font-medium text-navy-900 outline-none transition placeholder:font-normal placeholder:text-slate-400 focus:border-brand-600 focus:bg-white focus:ring-4 focus:ring-brand-100 dark:border-slate-700 dark:bg-slate-950 dark:text-white dark:placeholder:text-slate-500 dark:focus:border-brand-500 dark:focus:ring-brand-950"
+                      className="rounded-2xl border border-slate-200 bg-slate-50/60 px-4 py-3.5 text-sm font-medium text-navy-900 outline-none transition placeholder:font-normal placeholder:text-slate-500 focus:border-brand-600 focus:bg-white focus:ring-4 focus:ring-brand-100 dark:border-slate-700 dark:bg-slate-950 dark:text-white dark:placeholder:text-slate-400 dark:focus:border-brand-500 dark:focus:ring-brand-950"
                     />
                   </label>
                   <label className="grid gap-2 text-xs font-bold text-slate-600 dark:text-slate-300">
@@ -216,7 +216,7 @@ export function Contact({ t, l }) {
                       autoComplete="email"
                       dir="ltr"
                       placeholder="name@mail.com"
-                      className="rounded-2xl border border-slate-200 bg-slate-50/60 px-4 py-3.5 text-sm font-medium text-navy-900 outline-none transition placeholder:font-normal placeholder:text-slate-400 focus:border-brand-600 focus:bg-white focus:ring-4 focus:ring-brand-100 dark:border-slate-700 dark:bg-slate-950 dark:text-white dark:placeholder:text-slate-500 dark:focus:border-brand-500 dark:focus:ring-brand-950"
+                      className="rounded-2xl border border-slate-200 bg-slate-50/60 px-4 py-3.5 text-sm font-medium text-navy-900 outline-none transition placeholder:font-normal placeholder:text-slate-500 focus:border-brand-600 focus:bg-white focus:ring-4 focus:ring-brand-100 dark:border-slate-700 dark:bg-slate-950 dark:text-white dark:placeholder:text-slate-400 dark:focus:border-brand-500 dark:focus:ring-brand-950"
                     />
                   </label>
                 </div>
@@ -229,19 +229,19 @@ export function Contact({ t, l }) {
                     required
                     rows={4}
                     placeholder={t("contactForm.messagePlaceholder")}
-                    className="resize-y rounded-2xl border border-slate-200 bg-slate-50/60 px-4 py-3.5 text-sm font-medium text-navy-900 outline-none transition placeholder:font-normal placeholder:text-slate-400 focus:border-brand-600 focus:bg-white focus:ring-4 focus:ring-brand-100 dark:border-slate-700 dark:bg-slate-950 dark:text-white dark:placeholder:text-slate-500 dark:focus:border-brand-500 dark:focus:ring-brand-950"
+                    className="resize-y rounded-2xl border border-slate-200 bg-slate-50/60 px-4 py-3.5 text-sm font-medium text-navy-900 outline-none transition placeholder:font-normal placeholder:text-slate-500 focus:border-brand-600 focus:bg-white focus:ring-4 focus:ring-brand-100 dark:border-slate-700 dark:bg-slate-950 dark:text-white dark:placeholder:text-slate-400 dark:focus:border-brand-500 dark:focus:ring-brand-950"
                   />
                 </label>
 
                 <button
                   type="submit"
-                  className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-brand-600 px-6 py-4 text-sm font-bold text-white shadow-md shadow-brand-600/30 transition-all duration-200 hover:bg-brand-700 hover:shadow-brand-600/40 focus:outline-none dark:shadow-brand-900/40"
+                  className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-brand-700 px-6 py-4 text-sm font-bold text-white shadow-md shadow-brand-600/30 transition-all duration-200 hover:bg-brand-800 hover:shadow-brand-600/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2 dark:shadow-brand-900/40"
                 >
                   <FontAwesomeIcon icon={faPaperPlane} className="text-xs" />
                   {t("contactForm.sendViaEmail")}
                 </button>
 
-                <p className="mt-3 text-center text-xs text-slate-400 dark:text-slate-500">
+                <p className="mt-3 text-center text-xs text-slate-500 dark:text-slate-400">
                   {t("contactForm.note")}
                 </p>
 
@@ -274,14 +274,14 @@ export function Footer({ t }) {
         <div className="flex items-center gap-4 text-sm">
           <a
             href={`mailto:${doctor.contact.email}`}
-            className="text-slate-400 transition hover:text-brand-600 dark:hover:text-brand-400"
+            className="text-slate-500 transition hover:text-brand-700 dark:text-slate-400 dark:hover:text-brand-400"
             aria-label={t("hero.email")}
           >
             <FontAwesomeIcon icon={faEnvelope} />
           </a>
           <a
             href={doctor.contact.phoneHref}
-            className="text-slate-400 transition hover:text-brand-600 dark:hover:text-brand-400"
+            className="text-slate-500 transition hover:text-brand-700 dark:text-slate-400 dark:hover:text-brand-400"
             aria-label={t("hero.phone")}
           >
             <FontAwesomeIcon icon={faPhone} />
@@ -290,7 +290,7 @@ export function Footer({ t }) {
 
         <a
           href="#hero"
-          className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 px-4 py-2 font-bold text-slate-700 transition hover:border-brand-300 hover:text-brand-600 dark:border-slate-800 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:text-white"
+          className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 px-4 py-2 font-bold text-slate-700 transition hover:border-brand-300 hover:text-brand-700 dark:border-slate-800 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:text-white"
         >
           <FontAwesomeIcon
             icon={faArrowUp}

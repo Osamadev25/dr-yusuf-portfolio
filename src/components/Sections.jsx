@@ -53,7 +53,7 @@ export function ServicesSection({ t, l }) {
               <div className="mt-8">
                 <a
                   href="#contact"
-                  className="inline-flex items-center gap-2 rounded-full bg-brand-600 px-6 py-3.5 text-sm font-bold text-white shadow-md shadow-brand-600/25 transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-700 hover:shadow-brand-600/35 focus:outline-none dark:shadow-brand-900/30"
+                  className="inline-flex items-center gap-2 rounded-full bg-brand-700 px-6 py-3.5 text-sm font-bold text-white shadow-md shadow-brand-600/25 transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-800 hover:shadow-brand-600/35 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2 dark:shadow-brand-900/30"
                 >
                   {t("servicesSection.viewAll")}
                   <span className="text-base transition-transform group-hover:translate-x-1 rtl:rotate-180">
@@ -118,7 +118,7 @@ export function ExperienceTimelineSection({ t, l }) {
             <Reveal>
               <article className="relative overflow-hidden rounded-3xl border-2 border-brand-500 bg-gradient-to-br from-brand-50/50 via-white to-white p-6 shadow-md transition sm:p-7 dark:border-brand-600 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950">
                 <div className="flex flex-wrap items-center justify-between gap-2">
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-600 px-3.5 py-1 text-xs font-bold text-white shadow-sm">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-700 px-3.5 py-1 text-xs font-bold text-white shadow-sm">
                     <FontAwesomeIcon icon={faBriefcaseMedical} />
                     {t("experienceSection.currentRoleBadge")}
                   </span>
@@ -136,7 +136,7 @@ export function ExperienceTimelineSection({ t, l }) {
                 </p>
 
                 <div className="mt-4 border-t border-brand-100 pt-4 dark:border-slate-800">
-                  <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  <p className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                     {t("experienceSection.keyResponsibilities")}
                   </p>
                   <ul className="mt-2.5 space-y-2 text-sm text-slate-600 dark:text-slate-300">
@@ -215,7 +215,7 @@ export function ExperienceTimelineSection({ t, l }) {
                     download="Dr-Yusuf-Almasawa-CV.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2.5 rounded-full border-2 border-brand-600 bg-white px-6 py-3 text-sm font-bold text-brand-700 shadow-sm transition hover:bg-brand-600 hover:text-white dark:border-brand-500 dark:bg-slate-900 dark:text-brand-300 dark:hover:bg-brand-600 dark:hover:text-white"
+                    className="inline-flex items-center gap-2.5 rounded-full border-2 border-brand-600 bg-white px-6 py-3 text-sm font-bold text-brand-700 shadow-sm transition hover:bg-brand-700 hover:text-white dark:border-brand-500 dark:bg-slate-900 dark:text-brand-300 dark:hover:bg-brand-700 dark:hover:text-white"
                   >
                     <FontAwesomeIcon icon={faDownload} className="text-xs" />
                     <span>{t("experienceSection.viewCv")}</span>
@@ -262,7 +262,7 @@ export function Education({ t, l }) {
                     <h3 className="text-lg font-bold text-navy-900 dark:text-white">
                       {l(item.degree)}
                     </h3>
-                    <p className="mt-1 text-sm font-semibold text-brand-600 dark:text-brand-400">
+                    <p className="mt-1 text-sm font-semibold text-brand-700 dark:text-brand-400">
                       {l(item.institution)}
                     </p>
                     <div className="mt-2 flex flex-wrap items-center gap-2 text-xs font-medium text-slate-500 dark:text-slate-400">
@@ -295,7 +295,7 @@ export function Education({ t, l }) {
                     <h3 className="text-lg font-bold text-navy-900 dark:text-white">
                       {l(q.name)}
                     </h3>
-                    <p className="mt-1 text-sm font-semibold text-brand-600 dark:text-brand-400">
+                    <p className="mt-1 text-sm font-semibold text-brand-700 dark:text-brand-400">
                       {l(q.detail)}
                     </p>
                   </div>
@@ -384,7 +384,7 @@ export function Skills({ t, l }) {
                     <p className="text-sm font-bold text-navy-900 dark:text-white">
                       {l(langItem.name)}
                     </p>
-                    <p className="mt-0.5 text-xs font-medium text-brand-600 dark:text-brand-400">
+                    <p className="mt-0.5 text-xs font-medium text-brand-700 dark:text-brand-400">
                       {l(langItem.level)}
                     </p>
                   </li>
@@ -498,7 +498,7 @@ export function Courses({ t, l }) {
                 onClick={() => setActiveTab("all")}
                 className={`rounded-xl px-3.5 py-1.5 text-xs font-bold transition ${
                   activeTab === "all"
-                    ? "bg-brand-600 text-white shadow"
+                    ? "bg-brand-700 text-white shadow"
                     : "text-slate-600 hover:text-navy-900 dark:text-slate-400 dark:hover:text-white"
                 }`}
               >
@@ -511,7 +511,7 @@ export function Courses({ t, l }) {
                   onClick={() => setActiveTab(g.id)}
                   className={`rounded-xl px-3.5 py-1.5 text-xs font-bold transition ${
                     activeTab === g.id
-                      ? "bg-brand-600 text-white shadow"
+                      ? "bg-brand-700 text-white shadow"
                       : "text-slate-600 hover:text-navy-900 dark:text-slate-400 dark:hover:text-white"
                   }`}
                 >
@@ -577,7 +577,7 @@ export function Research({ t, l }) {
                     <FontAwesomeIcon icon={faFlaskVial} />
                     {l(p.role)}
                   </span>
-                  <span className="text-xs font-bold text-slate-400">
+                  <span className="text-xs font-bold text-slate-500 dark:text-slate-400">
                     {p.year}
                   </span>
                 </div>

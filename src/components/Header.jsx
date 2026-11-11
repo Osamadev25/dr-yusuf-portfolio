@@ -82,7 +82,7 @@ export function Header({
     <>
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:start-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-navy-900 focus:px-4 focus:py-2 focus:text-white dark:focus:bg-brand-600"
+        className="sr-only focus:not-sr-only focus:absolute focus:start-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-navy-900 focus:px-4 focus:py-2 focus:text-white dark:focus:bg-brand-700"
       >
         {t("accessibility.skipToContent")}
       </a>
@@ -97,7 +97,7 @@ export function Header({
           {/* Logo */}
           <a
             href="#hero"
-            className="group flex min-w-0 items-center gap-2.5 focus:outline-none sm:gap-3.5"
+            className="group flex min-w-0 items-center gap-2.5 rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 sm:gap-3.5"
             onClick={() => setOpen(false)}
             aria-label={brandName}
           >
@@ -132,7 +132,7 @@ export function Header({
                   href={`#${item.id}`}
                   className={`relative px-3.5 py-2 text-sm font-semibold transition-colors duration-150 ${
                     active
-                      ? "text-brand-600 dark:text-brand-400"
+                      ? "text-brand-700 dark:text-brand-400"
                       : "text-slate-600 hover:text-navy-900 dark:text-slate-300 dark:hover:text-white"
                   }`}
                 >
@@ -167,7 +167,7 @@ export function Header({
                     className={`rounded-full px-3.5 py-1 transition duration-150 ${
                       isActive
                         ? "bg-white text-brand-700 shadow-sm dark:bg-slate-800 dark:text-brand-300"
-                        : "text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200"
+                        : "text-slate-600 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200"
                     }`}
                   >
                     {meta.nativeLabel}
@@ -242,7 +242,7 @@ export function Header({
                 className={`rounded-xl px-4 py-3 text-sm font-semibold transition ${
                   activeSection === item.id
                     ? "bg-brand-50 text-brand-700 dark:bg-slate-900 dark:text-brand-400"
-                    : "text-slate-700 hover:bg-slate-50 hover:text-brand-600 dark:text-slate-300 dark:hover:bg-slate-900 dark:hover:text-white"
+                    : "text-slate-700 hover:bg-slate-50 hover:text-brand-700 dark:text-slate-300 dark:hover:bg-slate-900 dark:hover:text-white"
                 }`}
               >
                 {l(item.label)}
@@ -269,7 +269,7 @@ export function SectionHeading({ kicker, title, description, centered = false })
     <div className={`max-w-2xl ${centered ? "mx-auto text-center" : ""}`}>
       {kicker && (
         <p
-          className={`inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-400 ${
+          className={`inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.2em] text-brand-700 dark:text-brand-400 ${
             centered ? "justify-center" : ""
           }`}
         >

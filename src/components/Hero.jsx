@@ -110,7 +110,7 @@ export function Hero({ t, l }) {
               {t("hero.name")}
             </h1>
 
-            <p className="mt-3 text-lg font-bold text-brand-600 sm:text-xl dark:text-brand-400">
+            <p className="mt-3 text-lg font-bold text-brand-700 sm:text-xl dark:text-brand-400">
               {t("hero.taglineSub")}
             </p>
 
@@ -122,7 +122,7 @@ export function Hero({ t, l }) {
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a
                 href="#about"
-                className="inline-flex items-center gap-2.5 rounded-full bg-brand-600 px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-brand-600/30 transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-700 hover:shadow-brand-600/40 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:shadow-brand-900/40"
+                className="inline-flex items-center gap-2.5 rounded-full bg-brand-700 px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-brand-600/30 transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-800 hover:shadow-brand-600/40 focus:outline-none focus:ring-2 focus:ring-brand-700 focus:ring-offset-2 dark:shadow-brand-900/40"
               >
                 <FontAwesomeIcon icon={faUser} className="text-xs" />
                 {t("hero.ctaAbout")}
@@ -132,9 +132,9 @@ export function Hero({ t, l }) {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 rounded-full border border-emerald-500/30 bg-emerald-50/80 px-6 py-3.5 text-sm font-bold text-emerald-800 shadow-sm backdrop-blur transition-all duration-200 hover:-translate-y-0.5 hover:bg-emerald-600 hover:text-white hover:shadow-emerald-600/30 focus:outline-none dark:border-emerald-500/40 dark:bg-emerald-950/40 dark:text-emerald-300 dark:hover:bg-emerald-600 dark:hover:text-white"
+                className="inline-flex items-center gap-2.5 rounded-full border border-emerald-500/30 bg-emerald-50/80 px-6 py-3.5 text-sm font-bold text-emerald-800 shadow-sm backdrop-blur transition-all duration-200 hover:-translate-y-0.5 hover:bg-emerald-700 hover:text-white hover:shadow-emerald-600/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700 focus-visible:ring-offset-2 dark:border-emerald-500/40 dark:bg-emerald-950/40 dark:text-emerald-300 dark:hover:bg-emerald-700 dark:hover:text-white"
               >
-                <span className="grid h-6 w-6 place-items-center rounded-full bg-emerald-500 text-xs text-white">
+                <span className="grid h-6 w-6 place-items-center rounded-full bg-emerald-600 text-xs text-white">
                   <FontAwesomeIcon icon={faCalendarCheck} />
                 </span>
                 {t("hero.ctaIntro")}
@@ -180,7 +180,7 @@ export function Hero({ t, l }) {
                       <p className="text-sm font-extrabold text-navy-900 dark:text-white">
                         {t("hero.name")}
                       </p>
-                      <p className="text-xs font-semibold text-brand-600 dark:text-brand-400">
+                      <p className="text-xs font-semibold text-brand-700 dark:text-brand-400">
                         {t("hero.title")}
                       </p>
                     </div>
@@ -296,7 +296,7 @@ export function AboutMeSection({ t, l, lang }) {
               <div className="mt-6">
                 <a
                   href="#experience"
-                  className="inline-flex items-center gap-2 rounded-full bg-brand-600 px-6 py-3 text-sm font-bold text-white shadow-md shadow-brand-600/25 transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-700 hover:shadow-brand-600/35 dark:shadow-brand-900/30"
+                  className="inline-flex items-center gap-2 rounded-full bg-brand-700 px-6 py-3 text-sm font-bold text-white shadow-md shadow-brand-600/25 transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-800 hover:shadow-brand-600/35 dark:shadow-brand-900/30"
                 >
                   {t("aboutSection.learnMore")}
                   <span className="text-base transition-transform group-hover:translate-x-1 rtl:rotate-180">
@@ -316,7 +316,7 @@ export function AboutMeSection({ t, l, lang }) {
                   <p className="font-signature text-3xl text-brand-700 dark:text-brand-300">
                     {t("aboutSection.signature")}
                   </p>
-                  <p className="mt-1 text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                  <p className="mt-1 text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                     {t("hero.title")}
                   </p>
                 </div>
@@ -324,7 +324,7 @@ export function AboutMeSection({ t, l, lang }) {
                 {/* Personal Details List */}
                 <ul className="mt-5 space-y-4 text-xs">
                   <li>
-                    <span className="block font-bold text-slate-400 uppercase tracking-wider dark:text-slate-500">
+                    <span className="block font-bold text-slate-500 uppercase tracking-wider dark:text-slate-400">
                       {t("aboutSection.degreeLabel")}
                     </span>
                     <span className="mt-1 block text-[13px] font-semibold text-navy-900 dark:text-white">
@@ -332,7 +332,7 @@ export function AboutMeSection({ t, l, lang }) {
                     </span>
                   </li>
                   <li>
-                    <span className="block font-bold text-slate-400 uppercase tracking-wider dark:text-slate-500">
+                    <span className="block font-bold text-slate-500 uppercase tracking-wider dark:text-slate-400">
                       {t("aboutSection.locationLabel")}
                     </span>
                     <span className="mt-1 block text-[13px] font-semibold text-navy-900 dark:text-white">
@@ -341,7 +341,7 @@ export function AboutMeSection({ t, l, lang }) {
                   </li>
                   <li>
                     <div className="flex items-center justify-between">
-                      <span className="block font-bold text-slate-400 uppercase tracking-wider dark:text-slate-500">
+                      <span className="block font-bold text-slate-500 uppercase tracking-wider dark:text-slate-400">
                         {t("hero.email")}
                       </span>
                       <button
@@ -349,7 +349,7 @@ export function AboutMeSection({ t, l, lang }) {
                         onClick={() =>
                           handleCopy(doctor.contact.email, "email")
                         }
-                        className="inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-[10px] font-bold text-brand-600 hover:bg-brand-50 dark:text-brand-400 dark:hover:bg-slate-800"
+                        className="inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-[10px] font-bold text-brand-700 hover:bg-brand-50 dark:text-brand-400 dark:hover:bg-slate-800"
                         title={t("hero.copy")}
                       >
                         <FontAwesomeIcon
@@ -369,7 +369,7 @@ export function AboutMeSection({ t, l, lang }) {
                   </li>
                   <li>
                     <div className="flex items-center justify-between">
-                      <span className="block font-bold text-slate-400 uppercase tracking-wider dark:text-slate-500">
+                      <span className="block font-bold text-slate-500 uppercase tracking-wider dark:text-slate-400">
                         {t("hero.phone")}
                       </span>
                       <button
@@ -377,7 +377,7 @@ export function AboutMeSection({ t, l, lang }) {
                         onClick={() =>
                           handleCopy(doctor.contact.phone, "phone")
                         }
-                        className="inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-[10px] font-bold text-brand-600 hover:bg-brand-50 dark:text-brand-400 dark:hover:bg-slate-800"
+                        className="inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-[10px] font-bold text-brand-700 hover:bg-brand-50 dark:text-brand-400 dark:hover:bg-slate-800"
                         title={t("hero.copy")}
                       >
                         <FontAwesomeIcon
@@ -392,7 +392,7 @@ export function AboutMeSection({ t, l, lang }) {
                       href={doctor.contact.phoneHref}
                       dir="ltr"
                       style={{ textAlign: lang === "ar" ? "right" : "left" }}
-                      className="mt-1 block text-[13px] font-semibold text-navy-900 hover:text-brand-600 dark:text-white dark:hover:text-brand-400"
+                      className="mt-1 block text-[13px] font-semibold text-navy-900 hover:text-brand-700 dark:text-white dark:hover:text-brand-400"
                     >
                       {doctor.contact.phone}
                     </a>

@@ -14,7 +14,7 @@ export function FloatingWhatsApp({ t }) {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={t("whatsapp.tooltip")}
-        className="group relative flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 text-white shadow-xl shadow-emerald-600/35 transition-all duration-300 hover:scale-110 hover:bg-emerald-600 hover:shadow-emerald-600/50 focus:outline-none focus:ring-4 focus:ring-emerald-300 dark:focus:ring-emerald-900"
+        className="group relative flex h-14 w-14 items-center justify-center rounded-full bg-emerald-600 text-white shadow-xl shadow-emerald-600/35 transition-all duration-300 hover:scale-110 hover:bg-emerald-700 hover:shadow-emerald-600/50 focus:outline-none focus:ring-4 focus:ring-emerald-600 dark:focus:ring-emerald-300"
       >
         {/* Soft pulse ring effect */}
         <span
