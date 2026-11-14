@@ -93,7 +93,7 @@ export function Hero({ t, l }) {
       />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
           {/* Left Column: Hero Texts & CTA */}
           <Reveal>
             <div className="flex items-center gap-3">
@@ -101,7 +101,7 @@ export function Hero({ t, l }) {
                 className="h-0.5 w-7 rounded-full bg-brand-600 dark:bg-brand-400"
                 aria-hidden="true"
               />
-              <span className="text-xs font-black uppercase tracking-[0.25em] text-brand-700 dark:text-brand-300">
+              <span className="min-w-0 text-[11px] font-black uppercase tracking-[0.1em] text-brand-700 dark:text-brand-300 sm:text-xs sm:tracking-[0.25em]">
                 {t("hero.kicker")}
               </span>
             </div>
@@ -162,6 +162,8 @@ export function Hero({ t, l }) {
                 <img
                   src={doctorPortrait}
                   alt={l(doctor.personal.displayName)}
+                  width="1305"
+                  height="1205"
                   className="aspect-[4/5] w-full object-cover object-top transition duration-500 hover:scale-105"
                   loading="eager"
                   fetchPriority="high"
@@ -253,13 +255,15 @@ export function AboutMeSection({ t, l, lang }) {
             <Reveal>
               <div className="relative mx-auto max-w-sm">
                 <div
-                  className="absolute -inset-2 -rotate-3 rounded-[2.5rem] bg-gradient-to-tr from-brand-600 to-teal-400 opacity-80 blur-sm dark:opacity-60"
+                  className="absolute -inset-2 -rotate-3 rounded-[2.5rem] bg-gradient-to-tr from-brand-600 to-teal-400 opacity-80 blur-sm dark:opacity-60 hidden sm:block"
                   aria-hidden="true"
                 />
                 <div className="relative overflow-hidden rounded-[2.2rem] border-4 border-white bg-slate-100 shadow-xl dark:border-slate-800 dark:bg-slate-900">
                   <img
                     src={`${import.meta.env.BASE_URL}images/hero.webp`}
-                    alt="Medical Stethoscope and Consultation Desk"
+                    alt={t("aboutSection.imageAlt")}
+                    width="1024"
+                    height="1536"
                     className="aspect-[4/5] w-full object-cover"
                     loading="lazy"
                   />
@@ -267,7 +271,7 @@ export function AboutMeSection({ t, l, lang }) {
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 via-transparent to-transparent" />
                   <div className="absolute bottom-4 inset-x-4 rounded-xl bg-white/90 p-3 text-center backdrop-blur dark:bg-slate-900/90">
                     <p className="text-xs font-bold text-brand-700 dark:text-brand-300">
-                      General Practice & Primary Care
+                      {t("aboutSection.imageCaption")}
                     </p>
                   </div>
                 </div>

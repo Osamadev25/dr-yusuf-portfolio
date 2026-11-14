@@ -17,6 +17,9 @@ const primaryNavigationIds = [
   "services",
   "experience",
   "education",
+  "skills",
+  "courses",
+  "research",
   "contact",
 ];
 const primaryNavigation = navigation.filter((item) =>
@@ -93,7 +96,7 @@ export function Header({
             : "border-b border-transparent bg-white/80 backdrop-blur-sm dark:bg-slate-950/80"
         }`}
       >
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-2 px-4 sm:gap-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex h-20 max-w-screen-2xl items-center justify-between gap-2 px-4 sm:gap-4 sm:px-6 lg:px-8">
           {/* Logo */}
           <a
             href="#hero"
@@ -110,10 +113,13 @@ export function Header({
               />
             </div>
             <div className="min-w-0 leading-tight">
-              <span className="block truncate text-base font-extrabold tracking-tight text-navy-900 transition dark:text-white sm:text-lg">
+              <span className="block truncate text-base font-extrabold tracking-tight text-navy-900 transition dark:text-white sm:hidden">
+                {t("navigation.brand")}
+              </span>
+              <span className="hidden truncate text-base font-extrabold tracking-tight text-navy-900 transition dark:text-white sm:block sm:text-lg">
                 {brandName}
               </span>
-              <span className="mt-1 block truncate text-[9px] font-bold uppercase tracking-[0.08em] text-brand-700 dark:text-brand-300 sm:text-[10px]">
+              <span className="mt-1 hidden truncate text-[9px] font-bold uppercase tracking-[0.08em] text-brand-700 dark:text-brand-300 sm:block sm:text-[10px]">
                 {t("navigation.brandSub")}
               </span>
             </div>
@@ -121,8 +127,8 @@ export function Header({
 
           {/* Desktop Nav */}
           <nav
-            className="hidden items-center gap-1 xl:gap-2 lg:flex"
-            aria-label="Primary"
+            className="hidden items-center gap-1 2xl:gap-2 2xl:flex"
+            aria-label={t("navigation.primaryLabel")}
           >
             {primaryNavigation.map((item) => {
               const active = activeSection === item.id;
@@ -130,6 +136,7 @@ export function Header({
                 <a
                   key={item.id}
                   href={`#${item.id}`}
+                  aria-current={active ? "location" : undefined}
                   className={`relative px-3.5 py-2 text-sm font-semibold transition-colors duration-150 ${
                     active
                       ? "text-brand-700 dark:text-brand-400"
@@ -203,7 +210,7 @@ export function Header({
             <button
               type="button"
               ref={menuButtonRef}
-              className="grid h-9 w-9 place-items-center rounded-xl border border-slate-200 text-slate-700 transition hover:bg-slate-100 dark:border-slate-800 dark:text-slate-200 dark:hover:bg-slate-900 lg:hidden"
+              className="grid h-9 w-9 place-items-center rounded-xl border border-slate-200 text-slate-700 transition hover:bg-slate-100 dark:border-slate-800 dark:text-slate-200 dark:hover:bg-slate-900 2xl:hidden"
               aria-expanded={open}
               aria-controls="mobile-menu"
               aria-label={
@@ -224,19 +231,20 @@ export function Header({
         <div
           id="mobile-menu"
           ref={panelRef}
-          className={`overflow-hidden border-slate-200 bg-white transition-[max-height,border-width] duration-300 dark:border-slate-800 dark:bg-slate-950 lg:hidden ${
+          className={`overflow-hidden border-slate-200 bg-white transition-[max-height,border-width] duration-300 dark:border-slate-800 dark:bg-slate-950 2xl:hidden ${
             open ? "max-h-[80vh] overflow-y-auto border-t" : "max-h-0"
           }`}
           aria-hidden={!open}
         >
           <nav
             className="mx-auto grid max-w-7xl gap-1 px-4 py-4 sm:px-6"
-            aria-label="Mobile"
+            aria-label={t("navigation.mobileLabel")}
           >
             {primaryNavigation.map((item) => (
               <a
                 key={item.id}
                 href={`#${item.id}`}
+                aria-current={activeSection === item.id ? "location" : undefined}
                 onClick={() => setOpen(false)}
                 tabIndex={open ? 0 : -1}
                 className={`rounded-xl px-4 py-3 text-sm font-semibold transition ${
@@ -257,7 +265,7 @@ export function Header({
           type="button"
           aria-label={t("navigation.closeMenu")}
           onClick={() => setOpen(false)}
-          className="fixed inset-0 z-40 cursor-default bg-navy-950/25 lg:hidden"
+          className="fixed inset-0 z-40 cursor-default bg-navy-950/25 2xl:hidden"
         />
       )}
     </>
@@ -293,36 +301,10 @@ export function SectionHeading({ kicker, title, description, centered = false })
 }
 
 export function Reveal({ children, delay = 0 }) {
-  const ref = useRef(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    if (typeof IntersectionObserver === "undefined") {
-      setVisible(true);
-      return;
-    }
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setVisible(true);
-            observer.disconnect();
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <div
-      ref={ref}
       style={{ "--reveal-delay": `${delay}ms` }}
-      className={`reveal ${visible ? "is-visible" : ""}`}
+      className="reveal min-w-0"
     >
       {children}
     </div>

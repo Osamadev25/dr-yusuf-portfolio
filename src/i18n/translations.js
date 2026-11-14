@@ -7,6 +7,11 @@ export const languages = {
 
 export const translations = {
   en: {
+    seo: {
+      title: "Dr. Yusuf Almasawa | General Practitioner — د. يوسف المساوى",
+      description:
+        "General Practitioner focused on primary care and community health in Sana'a, Yemen. | طبيب عام مهتم بالرعاية الأولية وصحة المجتمع في صنعاء، اليمن.",
+    },
     accessibility: {
       skipToContent: "Skip to content",
     },
@@ -25,6 +30,8 @@ export const translations = {
     navigation: {
       openMenu: "Open navigation menu",
       closeMenu: "Close navigation menu",
+      primaryLabel: "Primary navigation",
+      mobileLabel: "Mobile navigation",
       brand: "Dr. Yusuf",
       brandSub: "General Practitioner — Internal Medicine Dept.",
     },
@@ -38,7 +45,7 @@ export const translations = {
       tagline:
         "A motivated General Practitioner currently serving in the Internal Medicine Department at USTH, with clinical experience post-graduation and passionate about pursuing postgraduate specialization to advance evidence-based medicine.",
       ctaAbout: "About Me",
-      ctaIntro: "Schedule Consultation",
+      ctaIntro: "WhatsApp Inquiry",
       ctaContact: "Contact Me",
       ctaExperience: "View Experience",
       whatsappCta: "WhatsApp Inquiry",
@@ -61,6 +68,8 @@ export const translations = {
       locationLabel: "Hospital / City",
       locationValue: "USTH, Sana'a, Yemen",
       signature: "Dr. Yusuf Almasawa",
+      imageAlt: "Stethoscope and medical equipment on a clinic desk",
+      imageCaption: "General Practice & Primary Care",
     },
     servicesSection: {
       kicker: "AREAS OF CLINICAL FOCUS",
@@ -151,6 +160,11 @@ export const translations = {
     },
   },
   ar: {
+    seo: {
+      title: "د. يوسف المساوى | طبيب عام — Dr. Yusuf Almasawa",
+      description:
+        "طبيب عام مهتم بالرعاية الأولية وصحة المجتمع في صنعاء، اليمن. | General Practitioner focused on primary care and community health in Sana'a, Yemen.",
+    },
     accessibility: {
       skipToContent: "انتقل إلى المحتوى",
     },
@@ -169,6 +183,8 @@ export const translations = {
     navigation: {
       openMenu: "افتح قائمة التنقل",
       closeMenu: "أغلق قائمة التنقل",
+      primaryLabel: "التنقل الرئيسي",
+      mobileLabel: "قائمة التنقل",
       brand: "د. يوسف",
       brandSub: "طبيب عام — قسم الأمراض الباطنية",
     },
@@ -182,7 +198,7 @@ export const translations = {
       tagline:
         "طبيب عام متفانٍ يعمل حالياً في قسم الأمراض الباطنية بمستشفى جامعة العلوم والتكنولوجيا، يمتلك خبرة سريرية قيّمة بعد التخرج، وشغفاً عالياً بمتابعة الاختصاص الطبي وإثراء الرعاية الصحية المبنية على البراهين.",
       ctaAbout: "نبذة عني",
-      ctaIntro: "طلب استشارة / موعد",
+      ctaIntro: "استفسار عبر واتساب",
       ctaContact: "تواصل معي",
       ctaExperience: "عرض الخبرات",
       whatsappCta: "محادثة واتساب",
@@ -205,6 +221,8 @@ export const translations = {
       locationLabel: "المستشفى / المدينة",
       locationValue: "مستشفى USTH، صنعاء، اليمن",
       signature: "د. يوسف المساوى",
+      imageAlt: "سماعة طبية ومعدات طبية على مكتب في عيادة",
+      imageCaption: "الطب العام والرعاية الأولية",
     },
     servicesSection: {
       kicker: "مجالات التركيز السريري",

@@ -7,7 +7,7 @@ export function FloatingWhatsApp({ t }) {
   return (
     <aside
       aria-label={t("whatsapp.tooltip")}
-      className="fixed bottom-6 end-6 z-50 flex items-center"
+      className="fixed bottom-6 end-10 z-50 flex items-center sm:end-6"
     >
       <a
         href={href}

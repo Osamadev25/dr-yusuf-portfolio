@@ -492,10 +492,15 @@ export function Courses({ t, l }) {
             />
 
             {/* Filter Tabs */}
-            <div className="flex flex-wrap items-center gap-2 rounded-2xl bg-white p-1.5 shadow-sm dark:bg-slate-900 dark:border dark:border-slate-800">
+            <div
+              className="flex flex-wrap items-center gap-2 rounded-2xl bg-white p-1.5 shadow-sm dark:bg-slate-900 dark:border dark:border-slate-800"
+              role="group"
+              aria-label={t("sections.coursesTitle")}
+            >
               <button
                 type="button"
                 onClick={() => setActiveTab("all")}
+                aria-pressed={activeTab === "all"}
                 className={`rounded-xl px-3.5 py-1.5 text-xs font-bold transition ${
                   activeTab === "all"
                     ? "bg-brand-700 text-white shadow"
@@ -509,6 +514,7 @@ export function Courses({ t, l }) {
                   key={g.id}
                   type="button"
                   onClick={() => setActiveTab(g.id)}
+                  aria-pressed={activeTab === g.id}
                   className={`rounded-xl px-3.5 py-1.5 text-xs font-bold transition ${
                     activeTab === g.id
                       ? "bg-brand-700 text-white shadow"
