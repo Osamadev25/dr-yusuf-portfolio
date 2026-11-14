@@ -102,7 +102,6 @@ export function Header({
             href="#hero"
             className="group flex min-w-0 items-center gap-2.5 rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 sm:gap-3.5"
             onClick={() => setOpen(false)}
-            aria-label={brandName}
           >
             {/* Medical doctor emblem */}
             <div className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-600 to-teal-700 text-white shadow-md shadow-brand-600/20 transition-transform duration-200 group-hover:scale-105">
@@ -300,12 +299,9 @@ export function SectionHeading({ kicker, title, description, centered = false })
   );
 }
 
-export function Reveal({ children, delay = 0 }) {
+export function Reveal({ children }) {
   return (
-    <div
-      style={{ "--reveal-delay": `${delay}ms` }}
-      className="reveal min-w-0"
-    >
+    <div className="reveal min-w-0">
       {children}
     </div>
   );

@@ -9,13 +9,16 @@
       rel="preload"
       as="image"
       href="%BASE_URL%images/doctor-portrait.webp"
+      imagesrcset="%BASE_URL%images/doctor-portrait-440.webp 440w, %BASE_URL%images/doctor-portrait-880.webp 880w, %BASE_URL%images/doctor-portrait.webp 1305w"
+      imagesizes="(max-width: 640px) 100vw, 440px"
       fetchpriority="high"
     />
     <meta
       name="description"
       content="Dr. Yusuf Almasawa — General Practitioner in Sana'a, Yemen. Primary care and community health. | د. يوسف المساوى — طبيب عام في صنعاء، اليمن."
     />
-    <link rel="icon" type="image/webp" href="%BASE_URL%images/doctor-portrait.webp" />
+    <link rel="icon" type="image/x-icon" href="%BASE_URL%favicon.ico" />
+    <link rel="icon" type="image/png" sizes="48x48" href="%BASE_URL%favicon-48x48.png" />
 
     <!-- Open Graph / Facebook / WhatsApp -->
     <meta property="og:type" content="profile" />
@@ -47,9 +50,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cairo:wght@400;600;700&family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cairo:wght@400;600;700&family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cairo:wght@400;600;700&family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      />
+    </noscript>
     <title>Dr. Yusuf Almasawa | General Practitioner — د. يوسف المساوى</title>
     <script type="application/ld+json">
       {

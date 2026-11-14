@@ -161,6 +161,8 @@ export function Hero({ t, l }) {
               <div className="relative overflow-hidden rounded-[2.8rem] border-4 border-white bg-slate-100 shadow-xl dark:border-slate-800 dark:bg-slate-900">
                 <img
                   src={doctorPortrait}
+                  srcSet={`${import.meta.env.BASE_URL}images/doctor-portrait-440.webp 440w, ${import.meta.env.BASE_URL}images/doctor-portrait-880.webp 880w, ${import.meta.env.BASE_URL}images/doctor-portrait.webp 1305w`}
+                  sizes="(max-width: 640px) 100vw, 440px"
                   alt={l(doctor.personal.displayName)}
                   width="1305"
                   height="1205"
