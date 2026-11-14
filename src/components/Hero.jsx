@@ -97,7 +97,7 @@ export function Hero({ t, l }) {
       />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+        <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-[1.1fr_0.9fr] md:gap-8 lg:gap-16">
           {/* Left Column: Hero Texts & CTA */}
           <Reveal immediate>
             <div className="flex items-center gap-3">

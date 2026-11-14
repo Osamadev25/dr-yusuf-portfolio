@@ -32,6 +32,36 @@ const serviceIcons = {
   faNotesMedical: faNotesMedical,
 };
 
+const officialInstitutionUrls = {
+  "University of Science and Technology": "https://ust.edu.ye/",
+  "University of Science & Technology Hospital": "https://www.usthyemen.com.ye/",
+  "University of Science and Technology Hospital (USTH)": "https://www.usthyemen.com.ye/",
+  USTH: "https://www.usthyemen.com.ye/",
+  "Stanford University": "https://www.stanford.edu/",
+  "King's College London": "https://www.kcl.ac.uk/",
+  "London School of Hygiene & Tropical Medicine and UK Public Health Rapid Support Team":
+    "https://www.lshtm.ac.uk/",
+};
+
+function getOfficialInstitutionUrl(value) {
+  return value?.en ? officialInstitutionUrls[value.en] : undefined;
+}
+
+function InstitutionLink({ children, url }) {
+  if (!url) return children;
+
+  return (
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="underline decoration-brand-300 underline-offset-2 transition hover:text-brand-700 dark:decoration-brand-700 dark:hover:text-brand-300"
+    >
+      {children}
+    </a>
+  );
+}
+
 export function ServicesSection({ t, l }) {
   return (
     <section
@@ -130,7 +160,9 @@ export function ExperienceTimelineSection({ t, l }) {
                   {l(doctor.currentPosition.title)}
                 </h3>
                 <p className="mt-1 text-sm font-semibold text-brand-700 dark:text-brand-400">
-                  {l(doctor.currentPosition.workplace)} — {l(doctor.currentPosition.location)}
+                  <InstitutionLink url={getOfficialInstitutionUrl(doctor.currentPosition.workplace)}>
+                    {l(doctor.currentPosition.workplace)}
+                  </InstitutionLink>{" "}— {l(doctor.currentPosition.location)}
                 </p>
 
                 <div className="mt-4 border-t border-brand-100 pt-4 dark:border-slate-800">
@@ -178,7 +210,9 @@ export function ExperienceTimelineSection({ t, l }) {
                         {l(job.title)}
                       </h4>
                       <p className="mt-1 text-sm font-medium text-slate-600 dark:text-slate-400">
-                        {l(job.place)}
+                        <InstitutionLink url={getOfficialInstitutionUrl(job.place)}>
+                          {l(job.place)}
+                        </InstitutionLink>
                       </p>
                     </article>
                   </div>
@@ -261,7 +295,9 @@ export function Education({ t, l }) {
                       {l(item.degree)}
                     </h3>
                     <p className="mt-1 text-sm font-semibold text-brand-700 dark:text-brand-400">
-                      {l(item.institution)}
+                      <InstitutionLink url={getOfficialInstitutionUrl(item.institution)}>
+                        {l(item.institution)}
+                      </InstitutionLink>
                     </p>
                     <div className="mt-2 flex flex-wrap items-center gap-2 text-xs font-medium text-slate-500 dark:text-slate-400">
                       {item.location ? <span>{l(item.location)}</span> : null}
@@ -433,7 +469,9 @@ function CourseList({ items, l, icon }) {
             </p>
             {item.organizer ?? item.platform ? (
               <p className="mt-0.5 text-xs text-slate-500 dark:text-slate-400">
-                {l(item.organizer ?? item.platform)}
+                <InstitutionLink url={getOfficialInstitutionUrl(item.organizer ?? item.platform)}>
+                  {l(item.organizer ?? item.platform)}
+                </InstitutionLink>
               </p>
             ) : null}
             {item.year ?? item.duration ? (

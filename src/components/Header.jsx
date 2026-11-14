@@ -17,8 +17,6 @@ const primaryNavigationIds = [
   "services",
   "experience",
   "education",
-  "skills",
-  "courses",
   "research",
   "contact",
 ];
