@@ -17,6 +17,8 @@ function AnimatedNumber({ target, suffix = "" }) {
   const [count, setCount] = useState(0);
   const elementRef = useRef(null);
   const [started, setStarted] = useState(false);
+  const cleanTarget = typeof target === "string" ? target.replace(/,/g, "") : String(target);
+  const hasComma = typeof target === "string" && target.includes(",");
 
   useEffect(() => {
     const el = elementRef.current;
@@ -37,7 +39,7 @@ function AnimatedNumber({ target, suffix = "" }) {
 
   useEffect(() => {
     if (!started) return;
-    const numeric = parseInt(target, 10);
+    const numeric = parseInt(cleanTarget, 10);
     if (Number.isNaN(numeric)) {
       return;
     }
@@ -59,10 +61,12 @@ function AnimatedNumber({ target, suffix = "" }) {
     }, stepTime);
 
     return () => clearInterval(timer);
-  }, [started, target]);
+  }, [started, cleanTarget]);
 
-  const isNumeric = !Number.isNaN(parseInt(target, 10));
-  const displayedValue = isNumeric && started ? count : target;
+  const numeric = parseInt(cleanTarget, 10);
+  const isNumeric = !Number.isNaN(numeric);
+  const formattedCount = hasComma ? count.toLocaleString("en-US") : count;
+  const displayedValue = isNumeric && started ? formattedCount : target;
 
   return (
     <span ref={elementRef} className="tabular-nums">
@@ -95,7 +99,7 @@ export function Hero({ t, l }) {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
           {/* Left Column: Hero Texts & CTA */}
-          <Reveal>
+          <Reveal immediate>
             <div className="flex items-center gap-3">
               <span
                 className="h-0.5 w-7 rounded-full bg-brand-600 dark:bg-brand-400"
@@ -143,7 +147,7 @@ export function Hero({ t, l }) {
           </Reveal>
 
           {/* Right Column: Doctor Portrait with Curved Sweep Graphic */}
-          <Reveal delay={150}>
+          <Reveal delay={150} immediate>
             <div className="relative mx-auto flex w-full max-w-[440px] items-center justify-center">
               {/* Teal Curved Sweep Decorative Shape */}
               <div
@@ -162,7 +166,7 @@ export function Hero({ t, l }) {
                 <img
                   src={doctorPortrait}
                   srcSet={`${import.meta.env.BASE_URL}images/doctor-portrait-440.webp 440w, ${import.meta.env.BASE_URL}images/doctor-portrait-880.webp 880w, ${import.meta.env.BASE_URL}images/doctor-portrait.webp 1305w`}
-                  sizes="(max-width: 640px) 100vw, 440px"
+                  sizes="(max-width: 640px) 100vw, 880px"
                   alt={l(doctor.personal.displayName)}
                   width="1305"
                   height="1205"
@@ -196,7 +200,7 @@ export function Hero({ t, l }) {
         </div>
 
         {/* Floating Stats Bar with Animated Counter */}
-        <Reveal delay={250}>
+        <Reveal delay={250} immediate>
           <div className="mt-16 rounded-3xl border border-slate-200/80 bg-white p-6 shadow-xl shadow-slate-200/50 md:mt-20 md:p-8 dark:border-slate-800 dark:bg-slate-900/95 dark:shadow-none">
             <div className="grid grid-cols-2 gap-6 divide-y divide-slate-100 sm:grid-cols-4 sm:divide-y-0 sm:divide-x sm:divide-slate-100 rtl:sm:divide-x-reverse dark:divide-slate-800">
               {doctor.stats.map((item, idx) => {

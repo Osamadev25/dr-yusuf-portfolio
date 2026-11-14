@@ -440,7 +440,7 @@ export const doctor = {
       icon: "faUserDoctor",
     },
     {
-      value: { en: "Thousands", ar: "بالآلاف" },
+      value: "2,500+",
       label: { en: "Patients Managed", ar: "مرضى تمت رعايتهم" },
       icon: "faUsers",
     },

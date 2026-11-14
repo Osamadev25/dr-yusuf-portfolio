@@ -6,7 +6,7 @@ import {
   faUserDoctor,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { doctor } from "../data/doctor";
 import { navigation } from "../data/navigation";
 import { languages } from "../i18n/translations";
@@ -126,7 +126,7 @@ export function Header({
 
           {/* Desktop Nav */}
           <nav
-            className="hidden items-center gap-1 2xl:gap-2 2xl:flex"
+            className="hidden items-center gap-1 xl:flex 2xl:gap-2"
             aria-label={t("navigation.primaryLabel")}
           >
             {primaryNavigation.map((item) => {
@@ -136,7 +136,7 @@ export function Header({
                   key={item.id}
                   href={`#${item.id}`}
                   aria-current={active ? "location" : undefined}
-                  className={`relative px-3.5 py-2 text-sm font-semibold transition-colors duration-150 ${
+                  className={`relative px-2.5 py-1.5 text-xs font-semibold transition-colors duration-150 xl:text-xs 2xl:px-3.5 2xl:py-2 2xl:text-sm ${
                     active
                       ? "text-brand-700 dark:text-brand-400"
                       : "text-slate-600 hover:text-navy-900 dark:text-slate-300 dark:hover:text-white"
@@ -145,7 +145,7 @@ export function Header({
                   {l(item.label)}
                   {active && (
                     <span
-                      className="absolute inset-x-3.5 -bottom-1 h-0.5 rounded-full bg-brand-600 dark:bg-brand-400"
+                      className="absolute inset-x-2.5 -bottom-1 h-0.5 rounded-full bg-brand-600 dark:bg-brand-400 2xl:inset-x-3.5"
                       aria-hidden="true"
                     />
                   )}
@@ -209,7 +209,7 @@ export function Header({
             <button
               type="button"
               ref={menuButtonRef}
-              className="grid h-9 w-9 place-items-center rounded-xl border border-slate-200 text-slate-700 transition hover:bg-slate-100 dark:border-slate-800 dark:text-slate-200 dark:hover:bg-slate-900 2xl:hidden"
+              className="grid h-9 w-9 place-items-center rounded-xl border border-slate-200 text-slate-700 transition hover:bg-slate-100 dark:border-slate-800 dark:text-slate-200 dark:hover:bg-slate-900 xl:hidden"
               aria-expanded={open}
               aria-controls="mobile-menu"
               aria-label={
@@ -230,7 +230,7 @@ export function Header({
         <div
           id="mobile-menu"
           ref={panelRef}
-          className={`overflow-hidden border-slate-200 bg-white transition-[max-height,border-width] duration-300 dark:border-slate-800 dark:bg-slate-950 2xl:hidden ${
+          className={`overflow-hidden border-slate-200 bg-white transition-[max-height,border-width] duration-300 dark:border-slate-800 dark:bg-slate-950 xl:hidden ${
             open ? "max-h-[80vh] overflow-y-auto border-t" : "max-h-0"
           }`}
           aria-hidden={!open}
@@ -299,9 +299,54 @@ export function SectionHeading({ kicker, title, description, centered = false })
   );
 }
 
-export function Reveal({ children }) {
+export function Reveal({ children, delay = 0, immediate = false }) {
+  const elementRef = useRef(null);
+  const [ready, setReady] = useState(false);
+  const [visible, setVisible] = useState(immediate);
+
+  useLayoutEffect(() => {
+    if (immediate) {
+      setVisible(true);
+      return undefined;
+    }
+
+    const element = elementRef.current;
+    if (!element || typeof IntersectionObserver === "undefined") {
+      return undefined;
+    }
+
+    const reducedMotion =
+      window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
+    if (reducedMotion || element.getBoundingClientRect().top <= window.innerHeight) {
+      setVisible(true);
+      return undefined;
+    }
+
+    setReady(true);
+    try {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (!entry.isIntersecting) return;
+          setVisible(true);
+          observer.unobserve(element);
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+      );
+
+      observer.observe(element);
+      return () => observer.disconnect();
+    } catch {
+      setReady(false);
+      return undefined;
+    }
+  }, [immediate]);
+
   return (
-    <div className="reveal min-w-0">
+    <div
+      ref={elementRef}
+      className={`reveal min-w-0${ready ? " reveal-ready" : ""}${visible ? " is-visible" : ""}`}
+      style={{ "--reveal-delay": `${delay}ms` }}
+    >
       {children}
     </div>
   );
