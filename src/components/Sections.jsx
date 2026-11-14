@@ -3,8 +3,6 @@ import {
   faAward,
   faBookOpen,
   faBriefcaseMedical,
-  faBuildingUser,
-  faCertificate,
   faCircleCheck,
   faClock,
   faCompass,

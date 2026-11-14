@@ -261,6 +261,8 @@ export function AboutMeSection({ t, l, lang }) {
                 <div className="relative overflow-hidden rounded-[2.2rem] border-4 border-white bg-slate-100 shadow-xl dark:border-slate-800 dark:bg-slate-900">
                   <img
                     src={`${import.meta.env.BASE_URL}images/hero.webp`}
+                    srcSet={`${import.meta.env.BASE_URL}images/hero-384.webp 384w, ${import.meta.env.BASE_URL}images/hero-768.webp 768w, ${import.meta.env.BASE_URL}images/hero.webp 1024w`}
+                    sizes="(max-width: 640px) 100vw, 384px"
                     alt={t("aboutSection.imageAlt")}
                     width="1024"
                     height="1536"
