@@ -288,7 +288,7 @@ export function AboutMeSection({ t, l, lang }) {
           </div>
 
           {/* Column 2: Editorial & Biography */}
-          <div className="md:col-span-5 md:flex">
+          <div className="md:col-span-8 md:flex lg:col-span-5">
             <Reveal delay={100}>
               <div className="flex items-center gap-2">
                 <span className="h-0.5 w-6 rounded-full bg-brand-600" />
@@ -320,7 +320,7 @@ export function AboutMeSection({ t, l, lang }) {
           </div>
 
           {/* Column 3: Signature & Personal Info Card */}
-          <div className="md:col-span-3 md:flex">
+          <div className="md:col-span-12 md:flex lg:col-span-3">
             <Reveal delay={200}>
               <div className="h-full rounded-3xl border border-slate-200/90 bg-slate-50/70 p-6 shadow-sm backdrop-blur dark:border-slate-800 dark:bg-slate-900/80">
                 {/* Handwritten Cursive Signature */}
@@ -334,7 +334,7 @@ export function AboutMeSection({ t, l, lang }) {
                 </div>
 
                 {/* Personal Details List */}
-                <ul className="mt-5 space-y-4 text-xs">
+                <ul className="mt-5 space-y-4 text-xs md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-4 md:space-y-0 lg:block lg:space-y-4">
                   <li>
                     <span className="block font-bold text-slate-500 uppercase tracking-wider dark:text-slate-400">
                       {t("aboutSection.degreeLabel")}
