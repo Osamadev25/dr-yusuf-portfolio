@@ -255,9 +255,9 @@ export function AboutMeSection({ t, l, lang }) {
       className="relative scroll-mt-20 bg-white py-16 md:py-24 dark:bg-slate-950"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-14">
+        <div className="grid items-center gap-12 md:grid-cols-12 md:gap-10 lg:gap-14">
           {/* Column 1: Clinic / Stethoscope Photo with Curved teal shape */}
-          <div className="lg:col-span-4">
+          <div className="md:col-span-4">
             <Reveal>
               <div className="relative mx-auto max-w-sm">
                 <div
@@ -288,7 +288,7 @@ export function AboutMeSection({ t, l, lang }) {
           </div>
 
           {/* Column 2: Editorial & Biography */}
-          <div className="lg:col-span-5">
+          <div className="md:col-span-5">
             <Reveal delay={100}>
               <div className="flex items-center gap-2">
                 <span className="h-0.5 w-6 rounded-full bg-brand-600" />
@@ -320,7 +320,7 @@ export function AboutMeSection({ t, l, lang }) {
           </div>
 
           {/* Column 3: Signature & Personal Info Card */}
-          <div className="lg:col-span-3">
+          <div className="md:col-span-3">
             <Reveal delay={200}>
               <div className="rounded-3xl border border-slate-200/90 bg-slate-50/70 p-6 shadow-sm backdrop-blur dark:border-slate-800 dark:bg-slate-900/80">
                 {/* Handwritten Cursive Signature */}
