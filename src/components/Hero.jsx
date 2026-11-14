@@ -255,16 +255,16 @@ export function AboutMeSection({ t, l, lang }) {
       className="relative scroll-mt-20 bg-white py-16 md:py-24 dark:bg-slate-950"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-12 md:grid-cols-12 md:gap-10 lg:gap-14">
+        <div className="grid items-stretch gap-12 md:grid-cols-12 md:gap-10 lg:gap-14">
           {/* Column 1: Clinic / Stethoscope Photo with Curved teal shape */}
-          <div className="md:col-span-4">
+          <div className="md:col-span-4 md:flex">
             <Reveal>
-              <div className="relative mx-auto max-w-sm">
+              <div className="relative mx-auto h-full max-w-sm">
                 <div
                   className="absolute -inset-2 -rotate-3 rounded-[2.5rem] bg-gradient-to-tr from-brand-600 to-teal-400 opacity-80 blur-sm dark:opacity-60 hidden sm:block"
                   aria-hidden="true"
                 />
-                <div className="relative overflow-hidden rounded-[2.2rem] border-4 border-white bg-slate-100 shadow-xl dark:border-slate-800 dark:bg-slate-900">
+                <div className="relative h-full overflow-hidden rounded-[2.2rem] border-4 border-white bg-slate-100 shadow-xl dark:border-slate-800 dark:bg-slate-900">
                   <img
                     src={`${import.meta.env.BASE_URL}images/hero.webp`}
                     srcSet={`${import.meta.env.BASE_URL}images/hero-384.webp 384w, ${import.meta.env.BASE_URL}images/hero-768.webp 768w, ${import.meta.env.BASE_URL}images/hero.webp 1024w`}
@@ -272,7 +272,7 @@ export function AboutMeSection({ t, l, lang }) {
                     alt={t("aboutSection.imageAlt")}
                     width="1024"
                     height="1536"
-                    className="aspect-[4/5] w-full object-cover"
+                    className="aspect-[4/5] h-full w-full object-cover md:aspect-auto"
                     loading="lazy"
                   />
                   {/* Subtle inner overlay */}
@@ -288,7 +288,7 @@ export function AboutMeSection({ t, l, lang }) {
           </div>
 
           {/* Column 2: Editorial & Biography */}
-          <div className="md:col-span-5">
+          <div className="md:col-span-5 md:flex">
             <Reveal delay={100}>
               <div className="flex items-center gap-2">
                 <span className="h-0.5 w-6 rounded-full bg-brand-600" />
@@ -320,9 +320,9 @@ export function AboutMeSection({ t, l, lang }) {
           </div>
 
           {/* Column 3: Signature & Personal Info Card */}
-          <div className="md:col-span-3">
+          <div className="md:col-span-3 md:flex">
             <Reveal delay={200}>
-              <div className="rounded-3xl border border-slate-200/90 bg-slate-50/70 p-6 shadow-sm backdrop-blur dark:border-slate-800 dark:bg-slate-900/80">
+              <div className="h-full rounded-3xl border border-slate-200/90 bg-slate-50/70 p-6 shadow-sm backdrop-blur dark:border-slate-800 dark:bg-slate-900/80">
                 {/* Handwritten Cursive Signature */}
                 <div className="border-b border-slate-200/80 pb-5 text-center dark:border-slate-800">
                   <p className="font-signature text-3xl text-brand-700 dark:text-brand-300">
