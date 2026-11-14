@@ -255,11 +255,11 @@ export function AboutMeSection({ t, l, lang }) {
       className="relative scroll-mt-20 bg-white py-16 md:py-24 dark:bg-slate-950"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-stretch gap-12 md:grid-cols-12 md:gap-10 lg:gap-14">
+        <div className="grid items-start gap-8 md:grid-cols-12 md:gap-8 lg:items-stretch lg:gap-14">
           {/* Column 1: Clinic / Stethoscope Photo with Curved teal shape */}
-          <div className="md:col-span-4 md:flex">
+          <div className="md:col-span-4 lg:flex lg:self-auto">
             <Reveal>
-              <div className="relative mx-auto h-full max-w-sm">
+              <div className="relative mx-auto h-auto max-w-sm lg:h-full">
                 <div
                   className="absolute -inset-2 -rotate-3 rounded-[2.5rem] bg-gradient-to-tr from-brand-600 to-teal-400 opacity-80 blur-sm dark:opacity-60 hidden sm:block"
                   aria-hidden="true"
@@ -272,7 +272,7 @@ export function AboutMeSection({ t, l, lang }) {
                     alt={t("aboutSection.imageAlt")}
                     width="1024"
                     height="1536"
-                    className="aspect-[4/5] h-full w-full object-cover md:aspect-auto"
+                    className="aspect-[4/5] h-auto w-full object-cover lg:aspect-auto lg:h-full"
                     loading="lazy"
                   />
                   {/* Subtle inner overlay */}
@@ -288,7 +288,7 @@ export function AboutMeSection({ t, l, lang }) {
           </div>
 
           {/* Column 2: Editorial & Biography */}
-          <div className="md:col-span-8 md:flex lg:col-span-5">
+          <div className="md:col-span-8 lg:flex lg:col-span-5 lg:self-auto">
             <Reveal delay={100}>
               <div className="flex items-center gap-2">
                 <span className="h-0.5 w-6 rounded-full bg-brand-600" />
@@ -320,9 +320,9 @@ export function AboutMeSection({ t, l, lang }) {
           </div>
 
           {/* Column 3: Signature & Personal Info Card */}
-          <div className="md:col-span-12 md:flex lg:col-span-3">
+          <div className="md:col-span-12 lg:flex lg:col-span-3 lg:self-auto">
             <Reveal delay={200}>
-              <div className="h-full rounded-3xl border border-slate-200/90 bg-slate-50/70 p-6 shadow-sm backdrop-blur dark:border-slate-800 dark:bg-slate-900/80">
+              <div className="h-full w-full rounded-3xl border border-slate-200/90 bg-slate-50/70 p-6 shadow-sm backdrop-blur dark:border-slate-800 dark:bg-slate-900/80">
                 {/* Handwritten Cursive Signature */}
                 <div className="border-b border-slate-200/80 pb-5 text-center dark:border-slate-800">
                   <p className="font-signature text-3xl text-brand-700 dark:text-brand-300">
