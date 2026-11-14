@@ -11,7 +11,7 @@ import { doctor } from "../data/doctor";
 import { navigation } from "../data/navigation";
 import { languages } from "../i18n/translations";
 
-const primaryNavigationIds = [
+const desktopNavigationIds = [
   "hero",
   "about",
   "services",
@@ -20,9 +20,10 @@ const primaryNavigationIds = [
   "research",
   "contact",
 ];
-const primaryNavigation = navigation.filter((item) =>
-  primaryNavigationIds.includes(item.id),
+const desktopNavigation = navigation.filter((item) =>
+  desktopNavigationIds.includes(item.id),
 );
+const mobileNavigation = navigation;
 
 export function Header({
   lang,
@@ -43,14 +44,14 @@ export function Header({
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 8);
-      const sections = primaryNavigation.map((n) =>
+      const sections = mobileNavigation.map((n) =>
         document.getElementById(n.id),
       );
       const scrollPos = window.scrollY + 120;
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = sections[i];
         if (el && el.offsetTop <= scrollPos) {
-          setActiveSection(primaryNavigation[i].id);
+          setActiveSection(mobileNavigation[i].id);
           break;
         }
       }
@@ -127,7 +128,7 @@ export function Header({
             className="hidden items-center gap-1 xl:flex 2xl:gap-2"
             aria-label={t("navigation.primaryLabel")}
           >
-            {primaryNavigation.map((item) => {
+            {desktopNavigation.map((item) => {
               const active = activeSection === item.id;
               return (
                 <a
@@ -237,7 +238,7 @@ export function Header({
             className="mx-auto grid max-w-7xl gap-1 px-4 py-4 sm:px-6"
             aria-label={t("navigation.mobileLabel")}
           >
-            {primaryNavigation.map((item) => (
+            {mobileNavigation.map((item) => (
               <a
                 key={item.id}
                 href={`#${item.id}`}
