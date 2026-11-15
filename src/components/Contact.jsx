@@ -72,10 +72,16 @@ export function Contact({ t, l }) {
   const [sent, setSent] = useState(false);
   const [copiedType, setCopiedType] = useState(null);
 
-  const handleCopy = (text, type) => {
-    navigator.clipboard?.writeText(text);
-    setCopiedType(type);
-    setTimeout(() => setCopiedType(null), 2000);
+  const handleCopy = async (text, type) => {
+    if (!navigator.clipboard?.writeText) return;
+
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedType(type);
+      setTimeout(() => setCopiedType(null), 2000);
+    } catch {
+      setCopiedType(null);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -198,10 +204,13 @@ export function Contact({ t, l }) {
                   <label className="grid gap-2 text-xs font-bold text-slate-600 dark:text-slate-300">
                     {t("contactForm.name")}
                     <input
+                      id="contact-name"
+                      name="name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       required
                       autoComplete="name"
+                      enterKeyHint="next"
                       placeholder={t("contactForm.namePlaceholder")}
                       className="rounded-2xl border border-slate-200 bg-slate-50/60 px-4 py-3.5 text-sm font-medium text-navy-900 outline-none transition placeholder:font-normal placeholder:text-slate-500 focus:border-brand-600 focus:bg-white focus:ring-4 focus:ring-brand-100 dark:border-slate-700 dark:bg-slate-950 dark:text-white dark:placeholder:text-slate-400 dark:focus:border-brand-500 dark:focus:ring-brand-950"
                     />
@@ -209,11 +218,14 @@ export function Contact({ t, l }) {
                   <label className="grid gap-2 text-xs font-bold text-slate-600 dark:text-slate-300">
                     {t("contactForm.email")}
                     <input
+                      id="contact-email"
+                      name="email"
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
                       autoComplete="email"
+                      enterKeyHint="next"
                       dir="ltr"
                       placeholder="name@mail.com"
                       className="rounded-2xl border border-slate-200 bg-slate-50/60 px-4 py-3.5 text-sm font-medium text-navy-900 outline-none transition placeholder:font-normal placeholder:text-slate-500 focus:border-brand-600 focus:bg-white focus:ring-4 focus:ring-brand-100 dark:border-slate-700 dark:bg-slate-950 dark:text-white dark:placeholder:text-slate-400 dark:focus:border-brand-500 dark:focus:ring-brand-950"
@@ -224,9 +236,12 @@ export function Contact({ t, l }) {
                 <label className="mt-5 grid gap-2 text-xs font-bold text-slate-600 dark:text-slate-300">
                   {t("contactForm.message")}
                   <textarea
+                    id="contact-message"
+                    name="message"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     required
+                    enterKeyHint="send"
                     rows={4}
                     placeholder={t("contactForm.messagePlaceholder")}
                     className="resize-y rounded-2xl border border-slate-200 bg-slate-50/60 px-4 py-3.5 text-sm font-medium text-navy-900 outline-none transition placeholder:font-normal placeholder:text-slate-500 focus:border-brand-600 focus:bg-white focus:ring-4 focus:ring-brand-100 dark:border-slate-700 dark:bg-slate-950 dark:text-white dark:placeholder:text-slate-400 dark:focus:border-brand-500 dark:focus:ring-brand-950"

@@ -17,8 +17,10 @@ function AnimatedNumber({ target, suffix = "" }) {
   const [count, setCount] = useState(0);
   const elementRef = useRef(null);
   const [started, setStarted] = useState(false);
+  const [shouldAnimate, setShouldAnimate] = useState(true);
   const cleanTarget = typeof target === "string" ? target.replace(/,/g, "") : String(target);
   const hasComma = typeof target === "string" && target.includes(",");
+  const numericTarget = parseInt(cleanTarget, 10);
 
   useEffect(() => {
     const el = elementRef.current;
@@ -27,6 +29,15 @@ function AnimatedNumber({ target, suffix = "" }) {
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting && !started) {
+          const isInitialViewport = window.scrollY === 0;
+          const prefersReducedMotion =
+            window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
+          const skipAnimation = isInitialViewport || prefersReducedMotion;
+
+          if (skipAnimation && !Number.isNaN(numericTarget)) {
+            setCount(numericTarget);
+          }
+          setShouldAnimate(!skipAnimation);
           setStarted(true);
         }
       },
@@ -38,22 +49,21 @@ function AnimatedNumber({ target, suffix = "" }) {
   }, [started]);
 
   useEffect(() => {
-    if (!started) return;
-    const numeric = parseInt(cleanTarget, 10);
-    if (Number.isNaN(numeric)) {
+    if (!started || !shouldAnimate) return;
+    if (Number.isNaN(numericTarget)) {
       return;
     }
 
     const duration = 1400;
     const steps = 30;
     const stepTime = duration / steps;
-    const stepVal = numeric / steps;
+    const stepVal = numericTarget / steps;
     let current = 0;
 
     const timer = setInterval(() => {
       current += stepVal;
-      if (current >= numeric) {
-        setCount(numeric);
+      if (current >= numericTarget) {
+        setCount(numericTarget);
         clearInterval(timer);
       } else {
         setCount(Math.floor(current));
@@ -61,10 +71,9 @@ function AnimatedNumber({ target, suffix = "" }) {
     }, stepTime);
 
     return () => clearInterval(timer);
-  }, [started, cleanTarget]);
+  }, [started, shouldAnimate, numericTarget]);
 
-  const numeric = parseInt(cleanTarget, 10);
-  const isNumeric = !Number.isNaN(numeric);
+  const isNumeric = !Number.isNaN(numericTarget);
   const formattedCount = hasComma ? count.toLocaleString("en-US") : count;
   const displayedValue = isNumeric && started ? formattedCount : target;
 
@@ -172,7 +181,7 @@ export function Hero({ t, l }) {
                   height="1205"
                   className="aspect-[4/5] w-full object-cover object-top transition duration-500 hover:scale-105"
                   loading="eager"
-                  fetchPriority="high"
+                  fetchpriority="high"
                 />
 
                 {/* Floating Badge on Doctor's Photo */}
