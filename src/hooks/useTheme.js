@@ -2,6 +2,13 @@ import { useEffect, useState } from "react";
 
 const STORAGE_KEY = "dr-yusuf-theme";
 
+function getBrowserTheme() {
+  if (typeof window === "undefined") return "light";
+  return window.matchMedia?.("(prefers-color-scheme: dark)")?.matches
+    ? "dark"
+    : "light";
+}
+
 export function useTheme() {
   const [theme, setTheme] = useState(() => {
     try {
@@ -10,7 +17,7 @@ export function useTheme() {
     } catch {
       /* ignore */
     }
-    return "light";
+    return getBrowserTheme();
   });
 
   useEffect(() => {
@@ -20,15 +27,36 @@ export function useTheme() {
     } else {
       root.classList.remove("dark");
     }
+  }, [theme]);
+
+  useEffect(() => {
     try {
-      localStorage.setItem(STORAGE_KEY, theme);
+      if (localStorage.getItem(STORAGE_KEY)) return undefined;
     } catch {
       /* ignore */
     }
-  }, [theme]);
+
+    const mediaQuery = window.matchMedia?.("(prefers-color-scheme: dark)");
+    if (!mediaQuery) return undefined;
+
+    const handleChange = (event) => {
+      setTheme(event.matches ? "dark" : "light");
+    };
+
+    mediaQuery.addEventListener?.("change", handleChange);
+    return () => mediaQuery.removeEventListener?.("change", handleChange);
+  }, []);
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+    setTheme((prev) => {
+      const nextTheme = prev === "dark" ? "light" : "dark";
+      try {
+        localStorage.setItem(STORAGE_KEY, nextTheme);
+      } catch {
+        /* ignore */
+      }
+      return nextTheme;
+    });
   };
 
   return {

@@ -8,6 +8,20 @@ import {
 
 const STORAGE_KEY = "dr-yusuf-language";
 
+function getBrowserLanguage() {
+  if (typeof navigator === "undefined") return defaultLanguage;
+
+  const preferredLanguages = navigator.languages?.length
+    ? navigator.languages
+    : [navigator.language];
+
+  return preferredLanguages.some((value) =>
+    value?.toLowerCase().startsWith("ar"),
+  )
+    ? "ar"
+    : "en";
+}
+
 export function useLanguage() {
   const [lang, setLang] = useState(() => {
     try {
@@ -16,8 +30,18 @@ export function useLanguage() {
     } catch {
       /* ignore */
     }
-    return defaultLanguage;
+    return getBrowserLanguage();
   });
+
+  const selectLanguage = useCallback((nextLanguage) => {
+    if (nextLanguage !== "en" && nextLanguage !== "ar") return;
+    setLang(nextLanguage);
+    try {
+      localStorage.setItem(STORAGE_KEY, nextLanguage);
+    } catch {
+      /* ignore */
+    }
+  }, []);
 
   useEffect(() => {
     const meta = languages[lang] ?? languages.en;
@@ -45,11 +69,6 @@ export function useLanguage() {
     document
       .querySelector('meta[name="twitter:description"]')
       ?.setAttribute("content", getTranslation(lang, "seo.description"));
-    try {
-      localStorage.setItem(STORAGE_KEY, meta.code);
-    } catch {
-      /* ignore */
-    }
   }, [lang]);
 
   const t = useCallback(
@@ -61,7 +80,7 @@ export function useLanguage() {
 
   return {
     lang,
-    setLang,
+    setLang: selectLanguage,
     t,
     l,
     dir: (languages[lang] ?? languages.en).direction,
